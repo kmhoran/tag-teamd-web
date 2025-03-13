@@ -22,7 +22,7 @@ namespace TagTeamdWeb.Services.Jwt
             var cacheKey = username;
             if (_cache.TryGetValue(cacheKey, out var cacheEntry))
             {
-                if (cacheEntry.Expiration > DateTime.UtcNow)
+                if (cacheEntry.Token == token && cacheEntry.Expiration > DateTime.UtcNow)
                 {
                     return true;
                 }
